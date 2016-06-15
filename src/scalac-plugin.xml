@@ -1,0 +1,4 @@
+<plugin>
+  <name>Scalytic</name>
+  <classname>edu.vtc.scalytic.ScalyticPlugin</classname>
+</plugin>

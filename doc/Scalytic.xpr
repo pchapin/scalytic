@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="15.2">
+    <meta>
+        <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="Scalytic.xpr">
+        <file name="Build.xml"/>
+        <file name="Design.xml"/>
+        <file name="Scalytic.xml"/>
+        <file name="User.xml"/>
+    </projectTree>
+</project>

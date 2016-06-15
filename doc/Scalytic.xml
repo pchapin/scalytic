@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.docbook.org/xml/4.5/docbookx.dtd" [
+
+<!ELEMENT xi:include (xi:fallback?) >
+<!ATTLIST xi:include
+    xmlns:xi   CDATA      #FIXED     "http://www.w3.org/2001/XInclude"
+    href       CDATA      #REQUIRED
+    parse      (xml|text) "xml"
+    encoding   CDATA      #IMPLIED >
+<!ELEMENT xi:fallback ANY>
+<!ATTLIST xi:fallback
+    xmlsn:xi   CDATA      #FIXED     "http://www.w3.org/2001/XInclude" >
+<!ENTITY % local.chapter.class "| xi:include">
+<!ENTITY % local.section.class "| xi:include">
+]>
+
+<!-- FILE        : Scalytic.xml
+     SUBJECT     : Master document for the Scalytic documentation set.
+     AUTHOR      : (C) Copyright 2014 by Peter C. Chapin <PChapin@vtc.vsc.edu>
+
+This is the documentation for the Scalytic compiler plugin. -->
+
+<book status="draft">
+  <bookinfo>
+    <title>Augusta</title>
+    <author>
+      <firstname>Peter</firstname>
+      <surname>Chapin</surname>
+      <othername role="mi">C.</othername>
+      <affiliation>
+        <orgname>Vermont Technical College</orgname>
+        <orgdiv>Computer Information Systems Department</orgdiv>
+      </affiliation>
+    </author>
+    <authorinitials>pcc</authorinitials>
+    <copyright>
+      <year>2014</year>
+      <holder>Peter C. Chapin</holder>
+    </copyright>
+    <legalnotice>
+      <para> Permission is granted to copy, distribute and/or modify this document under the
+        terms of the GNU Free Documentation License, Version 1.1 or any later version published
+        by the Free Software Foundation; with the Invariant Sections being LIST THEIR TITLES,
+        with the Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST. A copy
+        of the license is included in the section entitled "GNU Free Documentation License".
+      </para>
+    </legalnotice>
+    <!-- Do we really want to include this revision history now? -->
+    <revhistory>
+      <revision>
+        <revnumber>1.0</revnumber>
+        <date>2020-12-31</date>
+        <authorinitials>pcc</authorinitials>
+        <revremark>This is a work in progress with no definitive release schedule.</revremark>
+      </revision>
+    </revhistory>
+  </bookinfo>
+  <preface id="Introduction">
+    <title>Introduction</title>
+
+    <para>Scalytic is an analysis tool for Scala programs implemented as a Scala compiler
+      plugin. The precise goals and features of the tool are under development and thus this
+      document is continuously evolving. Scalytic is a research project with the long term goal
+      of providing formal verification for Scala programs in a way that extends the current
+      state of the art for formal verification in a Scala context.</para>
+
+    <para>This document primarily targets users and developers of Scalytic. The technical
+      details of Scalytic's design and theoretical underpinnings are documented by the academic
+      papers and related documents also stored in this repository.</para>
+
+    <para>Conceptually Scalytic project provides four components.</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>The definition of a Scala subset, called <emphasis>Sca</emphasis>, representing
+          the part of Scala over which Scalytic can perform its analysis. Scalytic only
+          processes constructs that are in the Sca subset as defined by this document.</para>
+      </listitem>
+
+      <listitem>
+        <para>The specification of annotations that can be used by the programmer to enrich
+          interface information with various kinds of contracts. Some of these annotations are
+          executable and can thus play a role in the dynamic testing of Scalytic
+          programs.</para>
+      </listitem>
+
+      <listitem>
+        <para>A plugin for the Scala compiler that generates verification conditions (or "proof
+          obligations," we use the terms interchangeably) in a suitable intermediate
+          verification language such as <ulink url="http://why3.lri.fr/">why3</ulink>.</para>
+      </listitem>
+
+      <listitem>
+        <para>Tool support for processing the generated verification conditions using standard
+          theorem provers such as <ulink url="http://alt-ergo.lri.fr/">alt-ergo</ulink> and/or
+            <ulink url="http://coq.inria.fr/what-is-coq">Coq</ulink>.</para>
+      </listitem>
+    </itemizedlist>
+
+    <!-- Include disclaimer. -->
+
+  </preface>
+
+  <xi:include href="Build.xml"/>
+  <xi:include href="User.xml"/>
+  <xi:include href="Design.xml"/>
+
+  <!-- <bibliography> ... </bibliography> -->
+
+</book>
